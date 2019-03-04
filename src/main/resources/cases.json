@@ -1,0 +1,44 @@
+{
+	"TC-001": {
+		"request": {
+			"url": "/addEmployee",
+			"body": {
+				"id": 2,
+				"name": "chitta",
+				"emailId": "lakshmi96@gmail.com",
+				"contactNo": "8142434441"
+			},
+			"method": "POST"
+		}
+	},
+	"TC-002": {
+		"request": {
+			"url": "/deleteEmployee",
+			"body": {
+			    "id":1,
+			    "name":"lakshmi",
+		    "emailId": "lakshmi@gmail.com",
+				"contactNo": "9885016169"
+			},
+			"method": "DELETE"
+		}
+	},
+	"TC-003": {
+		"request": {
+			"url": "/update",
+			"body": {
+				"id": 1,
+				"name": "lakshmi",
+				"emailId": "lakshmi@gmail.com",
+				"contactNo": "8142434441"
+			},
+			"method": "PUT"
+		}
+	},
+	"TC-004": {
+		"request": {
+			"url": "/getAllEmployees",
+			"method": "GET"
+		}
+	}
+}

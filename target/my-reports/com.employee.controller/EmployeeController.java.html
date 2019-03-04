@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EmployeeController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">employee</a> &gt; <a href="index.source.html" class="el_package">com.employee.controller</a> &gt; <span class="el_source">EmployeeController.java</span></div><h1>EmployeeController.java</h1><pre class="source lang-java linenums">package com.employee.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employee.bean.Employee;
+import com.employee.service.EmployeeService;
+
+@RestController
+<span class="fc" id="L19">public class EmployeeController {</span>
+
+	@Autowired
+	EmployeeService employeeService;
+
+	@PostMapping(value = &quot;/addEmployee&quot;)
+	public void addemployee(@RequestBody Employee employee) throws Exception {
+<span class="fc" id="L26">		employeeService.addemployee(employee);</span>
+<span class="fc" id="L27">	}</span>
+	
+	@DeleteMapping(value=&quot;/deleteEmployee/{emailId}&quot;)
+	public void deleteEmployee(@PathVariable(value=&quot;emailId&quot;)String emailId) throws Exception {
+<span class="nc" id="L31">		employeeService.deleteEmployee(emailId);</span>
+		
+<span class="nc" id="L33">	}</span>
+	@PutMapping(value=&quot;/update/{emailId}&quot;)
+	public void updateEmployee(@PathVariable String emailId,@RequestParam(value=&quot;contactNo&quot;) String contactNo) throws Exception {
+<span class="nc" id="L36">		employeeService.updateEmployee(emailId, contactNo);</span>
+<span class="nc" id="L37">	}</span>
+	
+	/*@GetMapping(value=&quot;/getEmployeeByEmailId/{emailId}&quot;)
+	public Employee getEmployeeByEmail(@PathVariable(value=&quot;emailId&quot;)String email) throws Exception {
+		return employeeService.getEmployeeByEmail(email);
+	}*/
+	
+	@GetMapping(value=&quot;/getAllEmployees&quot;)
+	public List&lt;Employee&gt; getemployees(){
+<span class="fc" id="L46">		return employeeService.getEmployees();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
